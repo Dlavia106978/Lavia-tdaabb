@@ -39,5 +39,16 @@ vector_original = vector;
 
 ---
 
-## Respuestas a las preguntas teóricas
-Incluír acá las respuestas a las preguntas del enunciado (si aplica).
+
+
+arbol: es un conjunto de nodos conectador por aristas, cada arbol tiene un nodo llamado raiz, a partir de este nodo se ramifican los demas nodos, estos nodos se dividen en niveles, los nodos que se encuentran en el mismo nivel de llaman nodos hermanos, un nodo de un nivel superior se llama padre y los nodos de niveles inferies se llaman hijos
+
+arbol binario: en este cada nodo puede tener como maximo dos hijos, estos son el hijo izquierdo y el hijo derecho. hay 3 formas de recorrer un arbol binario: estas son preorden (raiz, izquierda, derecha), inorden (izquierda, raiz, derecha), postorden (izquierda, derecha, raiz)
+
+arbol binario de busqueda: este es un tipo especifico de arbol binario, todos los nodos del lado izquierdo tienen valores menores que el nodo actual, y en el cado de los nodos del lado derecho tienen valores mayores. En este tipo de arbol las busquedas son mas eficientes ya que se puede descartar la mitad de un arbol en cada paso de la busqueda
+
+las operaciones basicas de un arbol binario de busqueda son
+insercion, esta consiste en añadir un nuevo nodo al arbol manteniendo las propiedades del mismo, O(log n) siendo n el valor de nodos en el arbol
+busqueda,  esta conciste en buscar un nodo con un valor especifico en el arbol, O(log n)
+eliminacion, consiste en eliminar un nodo especifico, O(log n)
+recorridos, recorre todos los nodos del arbol en un orden especifico (preorden, inorden y postorden) O(n)
