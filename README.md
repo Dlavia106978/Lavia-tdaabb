@@ -3,21 +3,8 @@
 ## Repositorio de (Nombre Apellido) - (Padrón) - (Mail)
 
 - Para compilar:
+bash .algo2/test.sh
 
-```bash
-línea de compilación
-```
-
-- Para ejecutar:
-
-```bash
-línea de ejecución
-```
-
-- Para ejecutar con valgrind:
-```bash
-línea con valgrind
-```
 ---
 ##  Funcionamiento
 
