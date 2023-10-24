@@ -6,6 +6,8 @@
 
 typedef enum { INORDEN, PREORDEN, POSTORDEN } abb_recorrido;
 
+
+
 /**
  * Comparador de elementos. Recibe dos elementos y devuelve 0 en caso de ser
  * iguales, >0 si el primer elemento es mayor al segundo o <0 si el primer
