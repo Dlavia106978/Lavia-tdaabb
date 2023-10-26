@@ -21,12 +21,17 @@ size_t rellenar_array_preorden(abb_t *arbol, void **array, size_t tamanio_array,
 
 abb_t *abb_crear(abb_comparador comparador)
 {
+	if (comparador == NULL) {
+		return NULL;
+	}
+
 	abb_t *arbol = malloc(sizeof(abb_t));
 	if (arbol != NULL) {
 		arbol->nodo_raiz = NULL;
 		arbol->comparador = comparador;
 		arbol->tamanio = 0;
 	}
+
 	return arbol;
 }
 
@@ -199,6 +204,10 @@ void abb_destruir_todo(abb_t *arbol, void (*destructor)(void *))
 }
 void abb_destruir(abb_t *arbol)
 {
+	if (arbol == NULL) {
+		return;
+	}
+
 	abb_destruir_rec(arbol, arbol->nodo_raiz, NULL);
 	free(arbol);
 }
@@ -250,18 +259,23 @@ bool con_cada_postorden(nodo_abb_t *nodo_actual,
 	if (nodo_actual == NULL) {
 		return true;
 	}
-	if (con_cada_postorden(nodo_actual->izquierda, funcion, aux,
-			       veces_invocada) == false) {
+
+	if (!con_cada_postorden(nodo_actual->izquierda, funcion, aux,
+				veces_invocada)) {
 		return false;
 	}
-	if (con_cada_postorden(nodo_actual->derecha, funcion, aux,
-			       veces_invocada) == false) {
+
+	if (!con_cada_postorden(nodo_actual->derecha, funcion, aux,
+				veces_invocada)) {
 		return false;
 	}
+
+	(*veces_invocada)++;
+
 	if (!funcion(nodo_actual->elemento, aux)) {
 		return false;
 	}
-	(*veces_invocada)++;
+
 	return true;
 }
 
@@ -271,18 +285,23 @@ bool con_cada_preorden(nodo_abb_t *nodo_actual, bool (*funcion)(void *, void *),
 	if (nodo_actual == NULL) {
 		return true;
 	}
+
+	(*veces_invocada)++;
+
 	if (!funcion(nodo_actual->elemento, aux)) {
 		return false;
 	}
-	(*veces_invocada)++;
-	if (con_cada_preorden(nodo_actual->izquierda, funcion, aux,
-			      veces_invocada) == false) {
+
+	if (!con_cada_preorden(nodo_actual->izquierda, funcion, aux,
+			       veces_invocada)) {
 		return false;
 	}
-	if (con_cada_preorden(nodo_actual->derecha, funcion, aux,
-			      veces_invocada) == false) {
+
+	if (!con_cada_preorden(nodo_actual->derecha, funcion, aux,
+			       veces_invocada)) {
 		return false;
 	}
+
 	return true;
 }
 
