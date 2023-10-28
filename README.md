@@ -54,3 +54,26 @@ vector_original = vector;
 
 ## Respuestas a las preguntas teóricas
 Incluír acá las respuestas a las preguntas del enunciado (si aplica).
+
+
+
+
+stack: se utiliza para almacenar variables locales e informarcion temporal, en mi codigo lo he utilizado en abb_insertar_rec con las variables nodo_actual y nodo_insertado, cuando la funcion termina estas variables se eliminan del stack
+
+heap: se utiliza para la memoria dinamica, los datos que se guardan siguen existiendo luego de que la funcion termine, uso malloc y free para asignar y liberar memoria, en mi programa lo he utilizado por ejemplo en abb_insertar, con la variable nodo_a_insertar
+
+
+diagrama:
+
+main -> variables locales en el stack (ejemplo nodo_actual y nodo_insertado)
+
+variables locales en el stack (ejemplo nodo_actual y nodo_insertado) -> llamo a abb_crear() 
+estructura del arbol en el heap
+
+llamo a abb_crear() -> nodo en el heap (nodo_a_insertar)
+
+ nodo en el heap (nodo_a_insertar) -> abb_destruir, libero la memoria en el heap
+
+
+
+
