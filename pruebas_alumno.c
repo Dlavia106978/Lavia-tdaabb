@@ -133,6 +133,76 @@ void prueba_eliminacion_elementos_no_existentes()
 	abb_destruir(arbol);
 }
 
+void probar_abb_buscar()
+{
+	pa2m_nuevo_grupo("Pruebas de abb_buscar");
+
+	abb_t *arbol = abb_crear(comparar_elementos);
+
+	pa2m_afirmar(abb_buscar(arbol, "hola") == NULL,
+		     "Buscar en un árbol vacío");
+
+	abb_insertar(arbol, "hola");
+	abb_insertar(arbol, "mundo");
+	abb_insertar(arbol, "prueba");
+
+	pa2m_afirmar(strcmp((char *)abb_buscar(arbol, "mundo"), "mundo") == 0,
+		     "Buscar un elemento existente");
+
+	pa2m_afirmar(abb_buscar(arbol, "openai") == NULL,
+		     "Buscar un elemento que no está en el árbol");
+
+	abb_destruir(arbol);
+}
+
+void probar_abb_quitar()
+{
+	pa2m_nuevo_grupo("Pruebas de abb_quitar");
+
+	abb_t *arbol = abb_crear(comparar_elementos);
+
+	abb_insertar(arbol, "hola");
+	abb_insertar(arbol, "mundo");
+	abb_insertar(arbol, "prueba");
+
+	pa2m_afirmar(abb_quitar(arbol, "mundo") != NULL,
+		     "Eliminar un elemento existente");
+	pa2m_afirmar(abb_buscar(arbol, "mundo") == NULL,
+		     "Verificar que el elemento eliminado no exista");
+
+	pa2m_afirmar(abb_quitar(arbol, "openai") == NULL,
+		     "Eliminar un elemento que no está en el árbol");
+
+	abb_destruir(arbol);
+}
+
+bool imprimir_elemento(void *elemento, void *aux)
+{
+	printf("%s ", (char *)elemento);
+	return true;
+}
+
+void probar_con_cada_elemento()
+{
+	pa2m_nuevo_grupo("Pruebas de abb_con_cada_elemento");
+
+	abb_t *arbol = abb_crear(comparar_elementos);
+
+	abb_insertar(arbol, "hola");
+	abb_insertar(arbol, "mundo");
+	abb_insertar(arbol, "prueba");
+
+	pa2m_afirmar(abb_con_cada_elemento(arbol, 1, imprimir_elemento, NULL) ==
+			     3,
+		     "Recorrer en inorden e imprimir elementos");
+
+	pa2m_afirmar(abb_con_cada_elemento(arbol, 2, imprimir_elemento, NULL) ==
+			     3,
+		     "Recorrer en postorden e imprimir elementos");
+
+	abb_destruir(arbol);
+}
+
 int main()
 {
 	pa2m_nuevo_grupo("PRUEBAS DEL ÁRBOL BINARIO DE BÚSQUEDA");
@@ -141,5 +211,8 @@ int main()
 	prueba_insercion_multiple();
 	prueba_eliminacion_multiple();
 	prueba_eliminacion_elementos_no_existentes();
+	probar_abb_buscar();
+	probar_abb_quitar();
+	probar_con_cada_elemento();
 	return pa2m_mostrar_reporte();
 }
