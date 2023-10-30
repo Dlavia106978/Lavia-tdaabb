@@ -74,6 +74,7 @@ llamo a abb_crear() -> nodo en el heap (nodo_a_insertar)
 
  nodo en el heap (nodo_a_insertar) -> abb_destruir, libero la memoria en el heap
 
+![image](https://github.com/Dlavia106978/Lavia-tdaabb/assets/111809475/0002808d-3fcb-4213-b95f-8ca79ba58400)
 
 
 
