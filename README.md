@@ -77,5 +77,8 @@ llamo a abb_crear() -> nodo en el heap (nodo_a_insertar)
 ![image](https://github.com/Dlavia106978/Lavia-tdaabb/assets/111809475/de6836a5-71a3-4c9b-ba8b-0ce5a4a7a3cb)
 
 
+![image](https://github.com/Dlavia106978/Lavia-tdaabb/assets/111809475/2e3f7dea-b89b-4aef-b487-3901812f1e89)
+![image](https://github.com/Dlavia106978/Lavia-tdaabb/assets/111809475/9acccb58-9c68-490f-a8e7-c1f5236cc898)
 
+![image](https://github.com/Dlavia106978/Lavia-tdaabb/assets/111809475/635800b7-8d01-4420-8830-77f7dcace767)
 
